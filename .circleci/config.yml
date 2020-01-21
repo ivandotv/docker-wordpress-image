@@ -6,13 +6,13 @@ jobs:
     steps:
       - checkout
       - run:
-          name: login to docker
+          name: Login to docker
           command: echo $DOCKER_TOKEN | docker login -u ivandotv --password-stdin
       - run:
-          name: call build script
+          name: Build all images
           command: ./build.sh
       - run:
-          name: push all images
+          name: Push all images
           command: docker push ivandotv/wordpress
 workflows:
   version: 2
