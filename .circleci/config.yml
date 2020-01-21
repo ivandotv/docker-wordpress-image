@@ -1,0 +1,24 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run:
+          name: login to docker
+          command: echo $DOCKER_TOKEN | docker login -u ivandotv --password-stdin
+      - run:
+          name: call build script
+          command: ./build.sh
+      - run:
+          name: push all images
+          command: docker push ivandotv/wordpress
+workflows:
+  version: 2
+  build_and_push:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
