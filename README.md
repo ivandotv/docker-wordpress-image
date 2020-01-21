@@ -1,6 +1,6 @@
 # WordPress images for development and production
 
-These images are built from the official WordPress `PHP-fpm` images, with some added functionality.
+These images are built from the official WordPress `PHP-fpm` images, with some added functionality (script hooks).
 
 All images come bundled with:
 
